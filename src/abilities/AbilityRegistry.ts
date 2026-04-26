@@ -17,6 +17,10 @@ export class AbilityRegistry {
     if (!ability) throw new Error(`Unknown ability: "${name}"`)
     return ability
   }
+
+  names(): string[] {
+    return Array.from(this.abilities.keys())
+  }
 }
 
 export const defaultRegistry = new AbilityRegistry()
