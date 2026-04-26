@@ -1,20 +1,20 @@
-import { Ability, AbilityActivation } from './Ability'
+import type { Ability, AbilityActivation } from './Ability';
 
 export class Poke implements Ability {
-  readonly name = 'Poke'
+  readonly name = 'Poke';
 
   onAttack(baseDamage: number): AbilityActivation {
-    if (Math.random() < 0.15) {
+    if (Math.random() < 0.05) {
       return {
         activated: true,
-        modifiedValue: Math.floor(baseDamage * 1.1),
-        logMessage: 'Poke! Slight bonus damage',
-      }
+        modifiedValue: Math.floor(baseDamage * 2.0),
+        logMessage: 'Poke! It finally landed.',
+      };
     }
-    return { activated: false, modifiedValue: baseDamage }
+    return { activated: false, modifiedValue: baseDamage };
   }
 
   onDefend(incomingDamage: number): AbilityActivation {
-    return { activated: false, modifiedValue: incomingDamage }
+    return { activated: false, modifiedValue: incomingDamage };
   }
 }

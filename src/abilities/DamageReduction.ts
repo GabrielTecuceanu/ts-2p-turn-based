@@ -1,10 +1,10 @@
-import { Ability, AbilityActivation } from './Ability'
+import type { Ability, AbilityActivation } from './Ability';
 
 export class DamageReduction implements Ability {
-  readonly name = 'DamageReduction'
+  readonly name = 'DamageReduction';
 
   onAttack(baseDamage: number): AbilityActivation {
-    return { activated: false, modifiedValue: baseDamage }
+    return { activated: false, modifiedValue: baseDamage };
   }
 
   onDefend(incomingDamage: number): AbilityActivation {
@@ -13,8 +13,8 @@ export class DamageReduction implements Ability {
         activated: true,
         modifiedValue: Math.floor(incomingDamage * 0.5),
         logMessage: 'Damage Reduction! Halved incoming damage',
-      }
+      };
     }
-    return { activated: false, modifiedValue: incomingDamage }
+    return { activated: false, modifiedValue: incomingDamage };
   }
 }

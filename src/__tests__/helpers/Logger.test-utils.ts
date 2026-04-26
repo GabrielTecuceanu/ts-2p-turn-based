@@ -1,9 +1,9 @@
-import { Logger } from '../../Logger'
+import type { Logger } from '../../Logger';
 
 export class CapturingLogger implements Logger {
-  readonly messages: string[] = []
+  readonly messages: string[] = [];
 
   log(message: string): void {
-    this.messages.push(message)
+    this.messages.push(message);
   }
 }

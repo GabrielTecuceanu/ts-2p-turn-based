@@ -1,7 +1,7 @@
-import { Ability, AbilityActivation } from './Ability'
+import type { Ability, AbilityActivation } from './Ability';
 
 export class Rampage implements Ability {
-  readonly name = 'Rampage'
+  readonly name = 'Rampage';
 
   onAttack(baseDamage: number): AbilityActivation {
     if (Math.random() < 0.75) {
@@ -9,9 +9,9 @@ export class Rampage implements Ability {
         activated: true,
         modifiedValue: baseDamage * 2,
         logMessage: 'Rampage! 2x damage',
-      }
+      };
     }
-    return { activated: false, modifiedValue: baseDamage }
+    return { activated: false, modifiedValue: baseDamage };
   }
 
   onDefend(incomingDamage: number): AbilityActivation {
@@ -20,8 +20,8 @@ export class Rampage implements Ability {
         activated: true,
         modifiedValue: 0,
         logMessage: 'Rampage shield! Negated all incoming damage',
-      }
+      };
     }
-    return { activated: false, modifiedValue: incomingDamage }
+    return { activated: false, modifiedValue: incomingDamage };
   }
 }

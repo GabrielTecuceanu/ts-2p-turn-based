@@ -1,10 +1,10 @@
-import { Ability, AbilityActivation } from './Ability'
+import type { Ability, AbilityActivation } from './Ability';
 
 export class SecondWind implements Ability {
-  readonly name = 'SecondWind'
+  readonly name = 'SecondWind';
 
   onAttack(baseDamage: number): AbilityActivation {
-    return { activated: false, modifiedValue: baseDamage }
+    return { activated: false, modifiedValue: baseDamage };
   }
 
   onDefend(incomingDamage: number): AbilityActivation {
@@ -13,8 +13,8 @@ export class SecondWind implements Ability {
         activated: true,
         modifiedValue: 0,
         logMessage: 'Second Wind! Negated all incoming damage',
-      }
+      };
     }
-    return { activated: false, modifiedValue: incomingDamage }
+    return { activated: false, modifiedValue: incomingDamage };
   }
 }
