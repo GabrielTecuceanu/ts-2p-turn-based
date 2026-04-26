@@ -24,8 +24,6 @@ describe('Combat', () => {
   })
 
   it('returns the surviving character as winner', () => {
-    // A: 100hp, 10dmg — survives 5 rounds before B (50hp) dies
-    // B: 50hp, 10dmg — dies after 5 rounds; A takes 50 total = 50hp left
     const a = makeChar('A', 100, 10)
     const b = makeChar('B', 50, 10)
     const winner = new Combat(a, b, new CapturingLogger()).run()
@@ -35,7 +33,6 @@ describe('Combat', () => {
   })
 
   it('returns null when both characters die simultaneously', () => {
-    // Both have 10hp and deal 10 dmg — die in round 1
     const a = makeChar('A', 10, 10)
     const b = makeChar('B', 10, 10)
     const winner = new Combat(a, b, new CapturingLogger()).run()
@@ -58,7 +55,6 @@ describe('Combat', () => {
     const a = makeChar('A', 100, 10, doubleHit)
     const b = makeChar('B', 100, 10)
     new Combat(a, b, new CapturingLogger()).runRound()
-    // A deals 20 (doubled), B deals 10 (noop)
     expect(b.hp).toBe(80)
     expect(a.hp).toBe(90)
   })
@@ -77,7 +73,6 @@ describe('Combat', () => {
     const a = makeChar('A', 100, 10)
     const b = makeChar('B', 100, 10, blockAll)
     new Combat(a, b, new CapturingLogger()).runRound()
-    // B blocks A's 10 dmg. A's noop defense takes B's 10 dmg.
     expect(b.hp).toBe(100)
     expect(a.hp).toBe(90)
   })

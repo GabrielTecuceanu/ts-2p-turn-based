@@ -1,6 +1,8 @@
 import { Ability } from './Ability'
 import { DamageReduction } from './DamageReduction'
+import { Poke } from './Poke'
 import { PowerStrike } from './PowerStrike'
+import { Rampage } from './Rampage'
 import { SecondWind } from './SecondWind'
 
 export class AbilityRegistry {
@@ -21,3 +23,5 @@ export const defaultRegistry = new AbilityRegistry()
 defaultRegistry.register('PowerStrike', new PowerStrike())
 defaultRegistry.register('DamageReduction', new DamageReduction())
 defaultRegistry.register('SecondWind', new SecondWind())
+defaultRegistry.register('Rampage', new Rampage())
+defaultRegistry.register('Poke', new Poke())
